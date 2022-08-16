@@ -65,7 +65,8 @@ class book_chapter_edit_form extends moodleform {
 
         $mform->addElement('editor', 'content_editor', get_string('content', 'mod_book'), null, $options);
         $mform->setType('content_editor', PARAM_RAW);
-        $mform->addRule('content_editor', get_string('required'), 'required', null, 'client');
+        // 16.08.2022/visol: Content should not be a mandatory field, see https://redmine.visol.ch/issues/32278
+        // $mform->addRule('content_editor', get_string('required'), 'required', null, 'client');
 
         if (core_tag_tag::is_enabled('mod_book', 'book_chapters')) {
             $mform->addElement('header', 'tagshdr', get_string('tags', 'tag'));
