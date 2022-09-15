@@ -284,7 +284,7 @@ abstract class format_base {
         }
         $modinfo = get_fast_modinfo($course);
         $sections = $modinfo->get_section_info_all();
-        return (int)max(array_keys($sections));
+        return count($sections) === 0 ? 0 : (int)max(array_keys($sections));
     }
 
     /**
